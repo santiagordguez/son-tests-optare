@@ -15,9 +15,8 @@ node {
 
        stage 'Testing'
             echo 'Testing Phase'
-            sh 'int-bss-gkeeper/scripts/tests.sh'	   	   
-
-
+            sh 'int-bss-gkeeper/scripts/tests.sh'
+	}
     catch (caughtError) {
         err = caughtError
         currentBuild.result = "FAILURE"
