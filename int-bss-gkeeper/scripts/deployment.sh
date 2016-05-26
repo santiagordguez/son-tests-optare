@@ -3,7 +3,7 @@
 export DOCKER_HOST="tcp://sp.int2.sonata-nfv.eu:2375"
 
 # -- run catalogue/repositories and gatekeeper containers
-cd int-bss-gkeeper/scriptss
+cd int-bss-gkeeper/scripts
 docker-compose down    
 docker-compose up -d
 sleep 10
