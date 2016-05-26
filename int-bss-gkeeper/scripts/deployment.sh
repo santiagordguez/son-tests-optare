@@ -3,8 +3,8 @@
 export DOCKER_HOST="tcp://sp.int2.sonata-nfv.eu:2375"
 
 # -- run catalogue/repositories and gatekeeper containers
-docker-compose -f int-bss-gkeeper/scripts/docker-compose.yml down    
-docker-compose -f int-bss-gkeeper/scripts/docker-compose.yml up -d
+docker-compose -f ./docker-compose.yml down    
+docker-compose -f ./docker-compose.yml up -d
 sleep 10
 docker-compose  -f int-bss-gkeeper/scripts/docker-compose.yml run --rm son-gtksrv bundle exec rake db:migrate
 sleep 10
