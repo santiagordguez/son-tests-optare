@@ -17,6 +17,8 @@ node {
        stage 'Testing'
             echo 'Testing Phase'
             sh 'int-bss-gkeeper/tests.sh'
+	   stage 'Showing report'
+			publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '$(pwd)/reports', reportFiles: 'htmlReport.html', reportName: 'HTML Report'])
 	}
     catch (caughtError) {
         err = caughtError
