@@ -3,17 +3,16 @@
 export DOCKER_HOST="tcp://sp.int2.sonata-nfv.eu:2375"
 
 # -- run catalogue/repositories and gatekeeper containers
-cd int-bss-gkeeper/scriptss
-docker-compose down    
-docker-compose up -d
+docker-compose -f int-bss-gkeeper/scripts/docker-compose.yml down    
+docker-compose -f int-bss-gkeeper/scripts/docker-compose.yml up -d
 sleep 10
-docker-compose run --rm son-gtksrv bundle exec rake db:migrate
+docker-compose  -f int-bss-gkeeper/scripts/docker-compose.yml run --rm son-gtksrv bundle exec rake db:migrate
 sleep 10
 
 # -- insert NSD/VNFD
 chmod +x *.sh
-./postCatalogueSampleDescriptors.sh
-./postGatekeeperSampleRequest.sh
+int-bss-gkeeper/scripts/postCatalogueSampleDescriptors.sh
+int-bss-gkeeper/scripts/postGatekeeperSampleRequest.sh
 
 # -- BSS
 if ! [[ "$(docker inspect -f {{.State.Running}} intbssgkeeper_son-bss 2> /dev/null)" == "" ]]; then docker rm -fv intbssgkeeper_son-bss ; fi
