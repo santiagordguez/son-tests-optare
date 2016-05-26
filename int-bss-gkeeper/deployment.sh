@@ -14,5 +14,5 @@ int-bss-gkeeper/scripts/postGatekeeperSampleRequest.sh
 
 # -- BSS
 if ! [[ "$(docker inspect -f {{.State.Running}} son-bss 2> /dev/null)" == "" ]]; then docker rm -fv son-bss ; fi
-docker run -d --name son-bss -p 25001:1337 -p 25002:1338 -v "$(pwd)/reports:/usr/local/yeoman/SonataBSS/E2E_tests/reports" -it son-yo-gen-bss
+docker run -d --name son-bss -p 25001:1337 -p 25002:1338 -v "int-bss-gkeeper/reports:/usr/local/yeoman/SonataBSS/E2E_tests/reports" -it son-yo-gen-bss
 docker exec -t son-bss sudo chown yeoman:yeoman /usr/local/yeoman/SonataBSS/E2E_tests/reports
