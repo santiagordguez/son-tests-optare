@@ -1,7 +1,7 @@
 version: '2'
 services:
   son-catalogue-repos:
-    image: registry.sonata-nfv.eu:5000/son-catalogue-repos
+    image: son-catalogue-repos
     links:
      - mongo
     ports:
@@ -9,7 +9,7 @@ services:
     restart: always
   
   son-catalogue-repos-doc:
-    image: registry.sonata-nfv.eu:5000/son-catalogue-repos
+    image: son-catalogue-repos
     ports:
       - "8800:8808"
     command: [rake,yard]
@@ -40,7 +40,7 @@ services:
     restart: always
   
   son-gtkapi:
-    image: registry.sonata-nfv.eu:5000/son-gtkapi
+    image: son-gtkapi
     links:
      - son-gtkpkg
      - son-gtksrv
@@ -51,7 +51,7 @@ services:
     restart: always
 
   son-gtkpkg:
-    image: registry.sonata-nfv.eu:5000/son-gtkpkg
+    image: son-gtkpkg
     environment:
       - RACK_ENV=integration
     ports:
@@ -59,7 +59,7 @@ services:
     restart: always
 
   son-gtksrv:
-    image: registry.sonata-nfv.eu:5000/son-gtksrv
+    image: son-gtksrv
     links:
      - broker
      - postgres
