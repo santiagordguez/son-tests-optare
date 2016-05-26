@@ -11,11 +11,11 @@ node {
 
        stage 'Deploy'
             echo 'Push to int-server'			
-			sh 'int-bss-gkeeper/scripts/deployment.sh'
+			sh 'int-bss-gkeeper/deployment.sh'
 
        stage 'Testing'
             echo 'Testing Phase'
-            sh 'int-bss-gkeeper/scripts/tests.sh'
+            sh 'int-bss-gkeeper/tests.sh'
 	}
     catch (caughtError) {
         err = caughtError
