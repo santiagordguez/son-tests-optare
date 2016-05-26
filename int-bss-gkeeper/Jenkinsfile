@@ -15,7 +15,7 @@ node {
 
        stage 'Testing'
             echo 'Testing Phase'
-            sh 'int-sp-instantiation/scripts/tests.sh'
+            sh 'int-bss-gkeeper/scripts/tests.sh'
 	   
 	   stage 'Notifications'
             echo 'Sending mails'
