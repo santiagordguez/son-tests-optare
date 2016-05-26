@@ -11,8 +11,8 @@ sleep 10
 
 # -- insert NSD/VNFD
 chmod +x *.sh
-./postCatalogueSampleDescriptors.sh
-./postGatekeeperSampleRequest.sh
+postCatalogueSampleDescriptors.sh
+postGatekeeperSampleRequest.sh
 
 # -- BSS
 if ! [[ "$(docker inspect -f {{.State.Running}} intbssgkeeper_son-bss 2> /dev/null)" == "" ]]; then docker rm -fv intbssgkeeper_son-bss ; fi

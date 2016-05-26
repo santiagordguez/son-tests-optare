@@ -15,16 +15,7 @@ node {
 
        stage 'Testing'
             echo 'Testing Phase'
-            sh 'int-bss-gkeeper/scripts/tests.sh'
-	   
-	   stage 'Notifications'
-            echo 'Sending mails'
-
-            mail body: 'project build successful',
-                        from: 'srodriguez@optaresolutions.com',
-                        subject: 'project build successful',
-                        to: 'srodriguez@optaresolutions.com'
-        }
+            sh 'int-bss-gkeeper/scripts/tests.sh'	   	   
 
 
     catch (caughtError) {
