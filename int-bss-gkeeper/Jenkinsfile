@@ -19,7 +19,7 @@ node {
             sh 'int-bss-gkeeper/tests.sh'
 	   stage 'Showing report'
 			echo 'Showing report'
-			publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '$(pwd)/reports', reportFiles: 'htmlReport.html', reportName: 'HTML Report'])
+			publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports', reportFiles: 'htmlReport.html', reportName: 'HTML Report'])
 	}
     catch (caughtError) {
         err = caughtError
