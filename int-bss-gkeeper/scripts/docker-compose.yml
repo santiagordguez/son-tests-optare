@@ -96,6 +96,6 @@ services:
 
   broker:
     image: rabbitmq:3
-    container_name: broker	
+    container_name: broker
     ports:
      - "5672"
