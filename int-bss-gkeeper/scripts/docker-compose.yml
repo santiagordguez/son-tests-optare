@@ -58,7 +58,7 @@ services:
 
   son-gtkpkg:
     image: son-gtkpkg
-    container_name: son-gtkpkg	
+    container_name: son-gtkpkg
     environment:
       - RACK_ENV=integration
     ports:
@@ -67,7 +67,7 @@ services:
 
   son-gtksrv:
     image: son-gtksrv
-    container_name: son-gtksrv	
+    container_name: son-gtksrv
     links:
      - broker
      - postgres
@@ -86,7 +86,7 @@ services:
 
   postgres:
     image: ntboes/postgres-uuid
-    container_name: postgres	
+    container_name: postgres
     ports:
      - "5432"
     environment:
