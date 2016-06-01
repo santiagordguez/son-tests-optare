@@ -1,5 +1,6 @@
 #!/bin/bash
-docker exec -t -d son-bss grunt serve:integration_tests --suite=intBSS_GK
+#docker exec -t -d son-bss grunt serve:integration_tests --suite=intBSS_GK
+docker exec -t -d son-bss grunt protractor_webdriver protractor:run --suite=intBSS_GK
 
 # -- get the remote reports
 x=0
