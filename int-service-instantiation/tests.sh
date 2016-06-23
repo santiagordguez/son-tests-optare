@@ -2,18 +2,12 @@
 docker rm -fv son-bss
 
 # -- Launch service instantiation
-docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log-opt gelf-address=udp://172.20.49.181:12900 son-yo-gen-bss grunt serve:integration_tests --gkApiUrl=http://chdocker:32001 --suite=service_Instantiation --debug
+docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log-opt gelf-address=udp://172.20.49.181:12900 son-yo-gen-bss grunt serve:integration_tests --gkApiUrl=http://chdocker:32001 --suite=service_InstantiationE2E --debug
 #docker exec -t -d son-bss grunt protractor_webdriver protractor:run --suite=unit
-
-sleep 5
 
 # -- Retrieve information
 int-service-instantiation/scripts/getModulesInfoFromGraylog.sh
 
-sleep 5
-
-# -- Check Request Status
-docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log-opt gelf-address=udp://172.20.49.181:12900 son-yo-gen-bss grunt serve:integration_tests --gkApiUrl=http://chdocker:32001 --suite=ready_Request_Validation --debug
 
 # -- get the remote reports
 x=0
