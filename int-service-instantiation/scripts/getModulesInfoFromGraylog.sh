@@ -45,16 +45,16 @@ Last updated: <strong>$(date)</strong><br><br>
 echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
 echo "POST received by gtkapi" >> $REP_DIR/intermediate_Info.html
 echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
-curl -X GET http://chdocker:12900/search/universal/keyword?query=source%3Aint-server-3%20AND%20message%3A%22POST%20AND%20message%3A%22$REQ_ID%22&keyword=last%20hour&fields=container_name%2Cmessage >> LOGMESSAGE
-echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
-if [ conditional expression ]
-then
-	echo "</td><td align='center' bgcolor=lightgreen>" >> $REP_DIR/intermediate_Info.html
-	echo "PASSED" >> $REP_DIR/intermediate_Info.html
-else
-	echo "</td><td align='center' bgcolor=red>" >> $REP_DIR/intermediate_Info.html
-	echo "FAILED" >> $REP_DIR/intermediate_Info.html
-fi
+#curl -X GET http://chdocker:12900/search/universal/keyword?query=source%3Aint-server-3%20AND%20message%3A%22POST%20AND%20message%3A%22$REQ_ID%22&keyword=last%20hour&fields=container_name%2Cmessage >> LOGMESSAGE
+#echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
+#if [ conditional expression ]
+#then
+#	echo "</td><td align='center' bgcolor=lightgreen>" >> $REP_DIR/intermediate_Info.html
+#	echo "PASSED" >> $REP_DIR/intermediate_Info.html
+#else
+#	echo "</td><td align='center' bgcolor=red>" >> $REP_DIR/intermediate_Info.html
+#	echo "FAILED" >> $REP_DIR/intermediate_Info.html
+#fi
 
 # check 2
 echo "</table></BODY></HTML>" >> $REP_DIR/intermediate_Info.html
