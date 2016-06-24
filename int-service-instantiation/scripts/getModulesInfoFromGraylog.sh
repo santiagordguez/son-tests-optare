@@ -42,12 +42,8 @@ Last updated: <strong>$(date)</strong><br><br>
 </tr>" >> $REP_DIR/intermediate_Info.html
 
 # check 1 - gtkapi: POST received
-echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "son-gtkapi" >> $REP_DIR/intermediate_Info.html
-echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "POST /requests received" >> $REP_DIR/intermediate_Info.html
-echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
+echo "<tr><td align='center'>son-gtkapi</td>" >> $REP_DIR/intermediate_Info.html
+echo "<td align='center'>POST /requests received</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
 LOGMESSAGE=$(curl -X GET "http://admin:admin@172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtkapi%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=container_name%2Cmessage")
 echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
 
@@ -61,12 +57,8 @@ else
 fi
 
 # check 2
-echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "son-gtksrv" >> $REP_DIR/intermediate_Info.html
-echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
-echo "POST /requests received" >> $REP_DIR/intermediate_Info.html
-echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
+echo "<tr><td align='center'>son-gtksrv</td>" >> $REP_DIR/intermediate_Info.html
+echo "<td align='center'>POST /requests received</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
 LOGMESSAGE=$(curl -X GET "http://admin:admin@172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtksrv%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=container_name%2Cmessage")
 echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
 
