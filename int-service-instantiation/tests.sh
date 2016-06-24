@@ -5,6 +5,8 @@ if ! [[ "$(docker inspect -f {{.State.Running}} son-bss 2> /dev/null)" == "" ]];
 docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log-opt gelf-address=udp://172.20.49.181:12900 son-yo-gen-bss grunt serve:integration_tests --gkApiUrl=http://172.20.49.181:32001 --suite=service_Instantiation_E2E --debug
 #docker exec -t -d son-bss grunt protractor_webdriver protractor:run --suite=unit
 
+sleep 20
+
 # -- Retrieve information
 int-service-instantiation/scripts/getModulesInfoFromGraylog.sh
 

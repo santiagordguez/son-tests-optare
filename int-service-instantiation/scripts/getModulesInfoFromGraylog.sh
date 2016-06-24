@@ -2,7 +2,6 @@
 
 # Report directory
 REP_DIR=$(pwd)/reports
-FILENAME=$REP_DIR/ids.txt
 read -r REQ_ID
 read -r SERV_ID
 
