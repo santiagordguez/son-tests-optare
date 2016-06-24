@@ -7,10 +7,6 @@ docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log
 
 sleep 20
 
-# -- Retrieve information
-int-service-instantiation/scripts/getModulesInfoFromGraylog.sh
-
-
 # -- get the remote reports
 x=0
 docker cp son-bss:/usr/local/yeoman/SonataBSS/E2E_tests/reports .
@@ -19,3 +15,6 @@ while [ "$x" -lt 100 -a ! -e $(pwd)/reports/ready_Request_Validation.html ]; do
         sleep 1
 		docker cp son-bss:/usr/local/yeoman/SonataBSS/E2E_tests/reports .
 done
+
+# -- Retrieve information
+int-service-instantiation/scripts/getModulesInfoFromGraylog.sh
