@@ -1,5 +1,5 @@
 #!/bin/bash
-docker rm -fv son-bss
+if ! [[ "$(docker inspect -f {{.State.Running}} son-bss 2> /dev/null)" == "" ]]; then docker rm -fv son-bss ; fi
 
 # -- Launch service instantiation
 docker run -d --name son-bss -p 25001:1337 -p 25002:1338 --log-driver=gelf --log-opt gelf-address=udp://172.20.49.181:12900 son-yo-gen-bss grunt serve:integration_tests --gkApiUrl=http://chdocker:32001 --suite=service_Instantiation_E2E --debug
