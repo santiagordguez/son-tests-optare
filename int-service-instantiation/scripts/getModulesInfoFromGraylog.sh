@@ -45,7 +45,7 @@ Last updated: <strong>$(date)</strong><br><br>
 echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
 echo "POST received by gtkapi" >> $REP_DIR/intermediate_Info.html
 echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
-curl -X GET "http://admin:admin@172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtkapi%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=message" >> LOGMESSAGE
+LOGMESSAGE=$(curl -X GET "http://admin:admin@172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtkapi%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=message")
 echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
 
 if [[ $LOGMESSAGE  ==  *POST[[:space:]]\/requests* ]] ;
@@ -61,7 +61,7 @@ fi
 echo "<tr><td align='center'>" >> $REP_DIR/intermediate_Info.html
 echo "POST received by gtksrv" >> $REP_DIR/intermediate_Info.html
 echo "</td><td align='center'>" >> $REP_DIR/intermediate_Info.html
-curl -X GET http://172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtksrv%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=message >> LOGMESSAGE
+LOGMESSAGE=$(curl -X GET "http://admin:admin@172.20.49.181:12900/search/universal/keyword/export?query=container_name%3Ason-gtksrv%20AND%20message%3A*POST*&keyword=last%205%20minutes&fields=message")
 echo $LOGMESSAGE >> $REP_DIR/intermediate_Info.html
 
 if [[ $LOGMESSAGE  ==  *POST[[:space:]]\/requests* ]] ;
